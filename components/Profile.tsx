@@ -46,7 +46,7 @@ const Profile: React.FC = () => {
             <div className="w-28 h-28 rounded-full border-4 border-white overflow-hidden shadow-lg bg-gray-100">
               <img 
                 src={profileImageUrl} 
-                alt="Isabella Fox" 
+                alt="Mirella Araujo" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -64,12 +64,12 @@ const Profile: React.FC = () => {
 
         <div className="mb-4">
           <div className="flex items-center gap-1">
-            <h1 className="text-2xl font-bold text-gray-900">Isabella Fox</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Mirella Araujo</h1>
             <CheckCircle size={18} className="text-[#0091ff] fill-current text-white" />
             <span className="ml-1 text-[#0091ff]">🌸</span>
           </div>
           <div className="flex items-center gap-2 text-gray-500 text-sm font-medium">
-            <span>@bellafoxofc</span>
+            <span>@mirella_araujofcc</span>
             <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
             <span className="text-green-600">Disponível agora</span>
           </div>

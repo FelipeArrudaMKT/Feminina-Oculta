@@ -54,7 +54,7 @@ const ContentFeed: React.FC = () => {
               </div>
               <div>
                 <div className="flex items-center gap-1 font-bold text-sm">
-                  Isabella Fox <span className="text-[#0091ff]">🌸</span>
+                  Mirella Araujo <span className="text-[#0091ff]">🌸</span>
                 </div>
                 <div className="text-xs text-gray-400 font-medium">{post.date}</div>
               </div>
