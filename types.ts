@@ -12,6 +12,7 @@ export interface Plan {
   period: string;
   tag?: string;
   highlight?: boolean;
+  checkoutUrl: string;
 }
 
 export interface Post {
