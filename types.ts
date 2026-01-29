@@ -22,4 +22,5 @@ export interface Post {
   likes: number;
   comments: number;
   thumbnail: string;
+  videoUrl?: string;
 }

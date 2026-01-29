@@ -19,27 +19,33 @@ const plans: Plan[] = [
   },
   {
     id: 'quarterly',
-    name: '3 MESES (15% OFF)',
+    name: 'PLANO TRIMESTRAL (3 MESES)',
     price: 'R$39,90',
     period: '/ total',
-    tag: 'Mais popular',
-    highlight: true,
+    tag: 'OFERTA ESPECIAL',
     checkoutUrl: 'https://pay.kirvano.com/96b31e0b-2fc4-4029-bb4a-89fc2d8272c7'
   },
   {
+    id: 'annual-new',
+    name: 'PLANO ANUAL (12 MESES)',
+    price: 'R$47,90',
+    period: '/ total',
+    tag: 'MELHOR ESCOLHA',
+    highlight: true,
+    checkoutUrl: 'https://pay.kirvano.com/71188f62-77fb-41f8-8c17-6299e56c4460'
+  },
+  {
     id: 'vip',
-    name: 'VITALÍCIO (25% OFF)',
-    price: 'R$69,90',
+    name: 'VITALÍCIO (OFERTA)',
+    price: 'R$59,90',
     period: '',
-    tag: 'Melhor custo-benefício',
+    tag: 'ACESSO PARA SEMPRE',
     checkoutUrl: 'https://pay.kirvano.com/0a3766cb-39fe-4766-8c56-8d68b2364e94'
   }
 ];
 
 const SubscriptionPlans: React.FC = () => {
   const handleSubscribe = (url: string) => {
-    // Abrir em uma nova aba é mais seguro para checkouts de terceiros,
-    // evitando bloqueios de iframe ou problemas de navegação no Vercel/Ambientes de teste.
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -51,7 +57,7 @@ const SubscriptionPlans: React.FC = () => {
           {plans.map((plan) => (
             <div key={plan.id} className="relative group">
               {plan.tag && (
-                <span className="absolute -top-2.5 right-4 bg-gray-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter z-10">
+                <span className={`absolute ${plan.id === 'vip' ? '-bottom-2 right-4' : '-top-2.5 right-4'} bg-gray-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter z-10 shadow-sm`}>
                   {plan.tag}
                 </span>
               )}
@@ -59,11 +65,13 @@ const SubscriptionPlans: React.FC = () => {
                 onClick={() => handleSubscribe(plan.checkoutUrl)}
                 className={`
                   flex flex-col gap-3 p-4 rounded-xl border-2 transition-all cursor-pointer
-                  ${plan.highlight ? 'border-[#0091ff] bg-blue-50/20 shadow-sm' : 'border-white bg-white hover:border-gray-200'}
+                  ${plan.highlight ? 'border-[#0091ff] bg-blue-50/20 shadow-md scale-[1.02]' : 'border-white bg-white hover:border-gray-200'}
                 `}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-[#0091ff] tracking-tight">{plan.name}</span>
+                  <span className={`text-xs font-bold tracking-tight ${plan.highlight ? 'text-[#0091ff]' : 'text-gray-600'}`}>
+                    {plan.name}
+                  </span>
                   <span className="text-gray-900 font-bold">
                     {plan.price} <span className="text-[10px] text-gray-400 font-normal">{plan.period}</span>
                   </span>
